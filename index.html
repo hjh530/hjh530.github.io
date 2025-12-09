@@ -3,94 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junhui He - 个人主页</title>
+    <title>Junhui He (何俊辉) - Home</title>
     <style>
-        /* 1. 全局样式：设置字体和背景 */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --light-text: #666;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* 2. 卡片容器：中间那个白色的框 */
-        .card {
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
             background: white;
-            width: 400px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        /* 3. 头像区域 */
+        /* 头部区域 */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+        }
+
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #e0e0e0;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin-bottom: 20px;
         }
 
-        /* 4. 文字排版 */
-        h1 { margin: 10px 0 5px; font-size: 24px; }
-        h2 { margin: 0 0 20px; font-size: 16px; color: #666; font-weight: normal; }
-        p { line-height: 1.6; color: #555; margin-bottom: 30px; }
-
-        /* 5. 链接按钮样式 */
-        .links { display: flex; flex-direction: column; gap: 10px; }
-        .btn {
-            display: block;
-            text-decoration: none;
-            background: #007bff;
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background 0.3s;
+        h1 {
+            margin: 10px 0;
+            color: var(--primary-color);
+            font-size: 2.2em;
         }
-        .btn:hover { background: #0056b3; }
-        .btn.secondary { background: #e0e0e0; color: #333; }
-        .btn.secondary:hover { background: #ccc; }
 
-        /* 6. 页脚 */
-        .footer { margin-top: 30px; font-size: 12px; color: #999; }
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 500;
+            padding: 5px 10px;
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* 通用章节样式 */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* 教育经历列表 */
+        .edu-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .edu-year {
+            min-width: 120px;
+            font-weight: bold;
+            color: var(--light-text);
+        }
+
+        .edu-details h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+        }
+
+        .edu-details p {
+            margin: 0;
+            color: var(--light-text);
+        }
+
+        /* 标签样式 (用于研究方向和技能) */
+        .tag {
+            display: inline-block;
+            background: #eef2f7;
+            color: var(--primary-color);
+            padding: 6px 15px;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        
+        .tag.skill {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* 论文列表 */
+        .pub-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .pub-item::before {
+            content: "📄";
+            position: absolute;
+            left: -5px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .status-badge {
+            font-size: 0.8em;
+            background: #fff3cd;
+            color: #856404;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            vertical-align: text-bottom;
+        }
+
+        /* 响应式适配手机 */
+        @media (max-width: 600px) {
+            .container { padding: 25px; margin: 20px 10px; }
+            .edu-item { flex-direction: column; }
+            .edu-year { margin-bottom: 5px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <!-- 头像：这里目前用的是占位图，你可以换成你的照片链接 -->
-        <img src="https://ui-avatars.com/api/?name=Junhui+He&background=0D8ABC&color=fff&size=128" alt="Avatar" class="avatar">
-        
-        <!-- 名字与头衔 -->
-        <h1>Junhui He</h1>
-        <h2>Researcher / Student @ CUG</h2>
-        
-        <!-- 简短介绍 -->
-        <p>
-            你好！我是来自<b>中国地质大学 (CUG)</b> 的 Junhui。
-            <br>
-            我热衷于地球科学与数据分析。
-            <br>
-            欢迎来到我的个人主页。
-        </p>
+    <div class="container">
+        <header>
+            <!-- 这里的图片用的占位符，你可以换成你自己的照片链接，或者把照片上传到仓库里然后引用文件名 -->
+            <img src="https://ui-avatars.com/api/?name=Junhui+He&background=2c3e50&color=fff&size=128&font-size=0.4" alt="Junhui He" class="avatar">
+            
+            <h1>Junhui He (何俊辉)</h1>
+            <p class="subtitle">Master Student @ China University of Geosciences (Wuhan)</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/hjh530" target="_blank">🐙 GitHub</a>
+                <a href="mailto:junhui.he@cug.edu.cn">📧 Email</a>
+            </div>
+        </header>
 
-        <!-- 链接按钮 -->
-        <div class="links">
-            <a href="mailto:junhui.he@cug.edu.cn" class="btn">📧 发送邮件</a>
-            <a href="https://github.com/你的用户名" class="btn secondary">🐙 GitHub 主页</a>
-            <!-- 你可以复制上面这一行添加更多链接，比如 Google Scholar -->
-        </div>
+        <section>
+            <h2>🎓 Education</h2>
+            
+            <div class="edu-item">
+                <div class="edu-year">2024 - Present</div>
+                <div class="edu-details">
+                    <h3>Photogrammetry and Remote Sensing</h3>
+                    <p>China University of Geosciences (Wuhan) | Master's Degree</p>
+                </div>
+            </div>
 
-        <div class="footer">
-            &copy; 2025 Junhui He. Hosted on GitHub Pages.
-        </div>
+            <div class="edu-item">
+                <div class="edu-year">2020 - 2024</div>
+                <div class="edu-details">
+                    <h3>Remote Sensing Science and Technology</h3>
+                    <p>China University of Geosciences (Wuhan) | Bachelor's Degree</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔬 Research Interests</h2>
+            <div>
+                <span class="tag">3D Reconstruction</span>
+                <span class="tag">Novel View Synthesis</span>
+                <span class="tag">3D Gaussian Splatting (3DGS)</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>📝 Publications</h2>
+            <div class="pub-item">
+                <span class="highlight">One paper on 3D Reconstruction/View Synthesis</span> (Title to be updated)
+                <span class="status-badge">Under Review @ Neurocomputing</span>
+                <br>
+                <small style="color: #666;">Authored by <strong>Junhui He</strong>, et al.</small>
+            </div>
+        </section>
+
+        <section>
+            <h2>💻 Tech Stack</h2>
+            <div>
+                <span class="tag skill">Python</span>
+                <span class="tag skill">C++</span>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 50px; color: #999; font-size: 0.9em;">
+            <p>&copy; 2025 Junhui He. Hosted on GitHub Pages.</p>
+        </footer>
     </div>
 
 </body>
 </html>
+
