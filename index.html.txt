@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junhui He - 个人主页</title>
+    <style>
+        /* 1. 全局样式：设置字体和背景 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 2. 卡片容器：中间那个白色的框 */
+        .card {
+            background: white;
+            width: 400px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* 3. 头像区域 */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        /* 4. 文字排版 */
+        h1 { margin: 10px 0 5px; font-size: 24px; }
+        h2 { margin: 0 0 20px; font-size: 16px; color: #666; font-weight: normal; }
+        p { line-height: 1.6; color: #555; margin-bottom: 30px; }
+
+        /* 5. 链接按钮样式 */
+        .links { display: flex; flex-direction: column; gap: 10px; }
+        .btn {
+            display: block;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #0056b3; }
+        .btn.secondary { background: #e0e0e0; color: #333; }
+        .btn.secondary:hover { background: #ccc; }
+
+        /* 6. 页脚 */
+        .footer { margin-top: 30px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- 头像：这里目前用的是占位图，你可以换成你的照片链接 -->
+        <img src="https://ui-avatars.com/api/?name=Junhui+He&background=0D8ABC&color=fff&size=128" alt="Avatar" class="avatar">
+        
+        <!-- 名字与头衔 -->
+        <h1>Junhui He</h1>
+        <h2>Researcher / Student @ CUG</h2>
+        
+        <!-- 简短介绍 -->
+        <p>
+            你好！我是来自<b>中国地质大学 (CUG)</b> 的 Junhui。
+            <br>
+            我热衷于地球科学与数据分析。
+            <br>
+            欢迎来到我的个人主页。
+        </p>
+
+        <!-- 链接按钮 -->
+        <div class="links">
+            <a href="mailto:junhui.he@cug.edu.cn" class="btn">📧 发送邮件</a>
+            <a href="https://github.com/你的用户名" class="btn secondary">🐙 GitHub 主页</a>
+            <!-- 你可以复制上面这一行添加更多链接，比如 Google Scholar -->
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Junhui He. Hosted on GitHub Pages.
+        </div>
+    </div>
+
+</body>
+</html>
