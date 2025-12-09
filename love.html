@@ -3,135 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>只属于你的浪漫 ❤️</title>
+    <title>给最特别的你 ❤️</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: #000; /* 黑色背景，让特效更亮眼 */
+            background-color: #000;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: "Microsoft YaHei", sans-serif;
-            cursor: pointer; /* 变成手指图标，提示可点击 */
-            user-select: none; /* 防止双击选中文字 */
+            cursor: pointer; 
+            user-select: none;
         }
 
-        /* 中间的提示文字 */
-        .center-text {
-            color: #ff4d6d;
-            font-size: 2rem;
+        /* 照片容器 */
+        .photo-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 20px;
+        }
+
+        /* 照片样式：圆形、发光边框、旋转动画 */
+        .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover; /* 保证照片不变形 */
+            border: 5px solid #ff4d6d;
+            box-shadow: 0 0 20px #ff0055;
+            animation: breathePhoto 3s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        /* 文字样式 */
+        .text-box {
+            z-index: 10;
             text-align: center;
-            animation: breathe 2s infinite ease-in-out;
-            pointer-events: none; /* 点击可以穿透文字 */
-            text-shadow: 0 0 15px #ff0055;
+            color: white;
+            pointer-events: none;
         }
 
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+        h1 {
+            font-size: 2rem;
+            margin: 10px 0;
+            color: #ffccd5;
+            text-shadow: 0 0 10px #ff0055;
+        }
+
+        p {
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
         /* 点击产生的爱心 */
         .click-heart {
             position: absolute;
-            top: 0;
-            left: 0;
             font-size: 30px;
             color: #ff0055;
             pointer-events: none;
-            animation: floatUpHeart 1s ease-out forwards;
-            z-index: 10;
+            animation: floatUpHeart 1.5s ease-out forwards;
+            z-index: 5;
         }
 
         /* 点击产生的文字 */
         .click-text {
             position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             color: #fff;
             pointer-events: none;
-            animation: floatUpText 1.5s ease-out forwards;
-            white-space: nowrap; /* 文字不换行 */
+            animation: floatUpText 2s ease-out forwards;
+            white-space: nowrap;
             text-shadow: 0 0 5px #ff4d6d;
-            z-index: 20;
+            z-index: 6;
         }
 
-        /* 动画：爱心向上飘并放大消失 */
+        /* 音乐控制提示（可选） */
+        .music-hint {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* 动画定义 */
+        @keyframes breathePhoto {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px #ff0055; }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px #ff4d6d; }
+        }
+
         @keyframes floatUpHeart {
             0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-            100% { transform: translate(-50%, -200%) scale(2); opacity: 0; }
+            100% { transform: translate(-50%, -300%) scale(2) rotate(20deg); opacity: 0; }
         }
 
-        /* 动画：文字向上飘并淡出 */
         @keyframes floatUpText {
             0% { transform: translate(-50%, -100%); opacity: 0; }
             20% { transform: translate(-50%, -150%); opacity: 1; }
-            100% { transform: translate(-50%, -300%); opacity: 0; }
+            100% { transform: translate(-50%, -400%); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="center-text">
-        <h1>🌹 点这里 🌹</h1>
-        <p style="font-size: 1rem; color: #aaa;">(点击屏幕任意位置)</p>
+    <!-- 1. 这里是照片区域 -->
+    <div class="photo-container">
+        <!-- 
+           ⚠️ 注意：
+           如果在 GitHub 上没传 photo.jpg，这里会显示一张默认的卡通图。
+           上传了 photo.jpg 后，它会自动变成你的照片。
+        -->
+        <img src="photo.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Love&background=ff4d6d&color=fff&size=256&rounded=true'" class="photo" alt="My Love">
     </div>
 
-    <script>
-        // 情话库：你可以自己在这个列表里增加更多
-        const words = [
-            "我爱你 ❤️", 
-            "I Love You", 
-            "永远爱你", 
-            "你最可爱", 
-            "Miss You", 
-            "🌹", 
-            "💖"
-        ];
+    <div class="text-box">
+        <h1>点一下屏幕 ❤️</h1>
+        <p>开启属于我们的浪漫</p>
+    </div>
+    
+    <div class="music-hint" id="musicStatus">🎵 等待点击播放音乐...</div>
 
-        // 监听点击事件
+    <!-- 2. 这里是背景音乐 -->
+    <!-- loop 表示循环播放 -->
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // 情话库
+        const words = ["我爱你 ❤️", "I Love You", "永远爱你", "💖", "Miss You", "你最美", "一生一世"];
+        let isMusicPlaying = false;
+        const audio = document.getElementById('bgm');
+        const musicStatus = document.getElementById('musicStatus');
+
         document.addEventListener('click', function(e) {
+            // --- 音乐控制部分 ---
+            // 只有第一次点击时才会尝试播放音乐
+            if (!isMusicPlaying) {
+                audio.play().then(() => {
+                    isMusicPlaying = true;
+                    musicStatus.innerText = "🎵 正在播放 Music...";
+                    musicStatus.style.color = "#ff4d6d";
+                }).catch(error => {
+                    console.log("浏览器阻止了自动播放，请再点一次");
+                });
+            }
+
+            // --- 爱心特效部分 ---
             const x = e.clientX;
             const y = e.clientY;
 
-            // 1. 生成爱心
+            // 生成爱心
             const heart = document.createElement('div');
             heart.classList.add('click-heart');
             heart.innerHTML = '❤️'; 
             heart.style.left = x + 'px';
             heart.style.top = y + 'px';
-            // 随机大小
-            const size = Math.random() * 20 + 20; 
+            const size = Math.random() * 30 + 20; 
             heart.style.fontSize = size + 'px';
+            heart.style.transform = `rotate(${Math.random() * 40 - 20}deg)`; // 随机微旋转
             document.body.appendChild(heart);
 
-            // 2. 生成情话文字
+            // 生成文字
             const text = document.createElement('div');
             text.classList.add('click-text');
-            // 随机选一句
-            const randomWord = words[Math.floor(Math.random() * words.length)];
-            text.innerText = randomWord;
-            
-            // 文字稍微出现在爱心上方一点
+            text.innerText = words[Math.floor(Math.random() * words.length)];
             text.style.left = x + 'px';
-            text.style.top = (y - 30) + 'px'; 
-            
-            // 随机文字颜色 (白色或淡粉色)
-            const colors = ['#fff', '#ffccd5', '#ffe6e6'];
-            text.style.color = colors[Math.floor(Math.random() * colors.length)];
-
+            text.style.top = (y - 40) + 'px'; 
+            text.style.color = ['#fff', '#ffccd5', '#ffe6e6'][Math.floor(Math.random() * 3)];
             document.body.appendChild(text);
 
-            // 动画结束后清理元素，防止页面变卡
-            setTimeout(() => {
-                heart.remove();
-                text.remove();
-            }, 2000);
+            // 清理
+            setTimeout(() => { heart.remove(); text.remove(); }, 2000);
         });
     </script>
 </body>
