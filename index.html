@@ -304,7 +304,7 @@
             interest2: "新视角合成",
             interest3: "3D高斯泼溅 (3DGS)",
             pubTitle: "📄 论文发表",
-            pubName: "MPD-GS: 基于掩膜引导的点密度增强的高斯泼溅方法",
+            pubName: "MPD-GS: Mask-guided point densification for Gaussian splatting",  // 保持英文原题
             pubStatus: "Neurocomputing, 2025",
             pubAuthors: "<strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
             pubJournal: "第668卷, 2025 · DOI: 10.1016/j.neucom.2025.132438",
@@ -351,7 +351,6 @@
         currentLang = lang;
         const t = translations[lang];
 
-        // 更新所有带 id 的元素
         const ids = [
             'name', 'subtitle', 'githubLink', 'emailLink', 'cvLink',
             'eduTitle', 'edu1Year', 'edu2Year', 'edu1Title', 'edu1Inst',
@@ -362,7 +361,6 @@
         for (let id of ids) {
             const el = document.getElementById(id);
             if (el && t[id] !== undefined) {
-                // 对于包含 HTML 的字段（如 pubAuthors），使用 innerHTML，否则 innerText
                 if (id === 'pubAuthors') {
                     el.innerHTML = t[id];
                 } else {
@@ -371,7 +369,6 @@
             }
         }
 
-        // 更新按钮激活样式
         document.querySelectorAll('.lang-btn').forEach(btn => {
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
