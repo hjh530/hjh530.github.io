@@ -6,12 +6,7 @@
     <title>何俊辉 · 3D Vision Researcher</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(145deg, #eef2f9 0%, #e0e7f0 100%);
@@ -19,7 +14,6 @@
             line-height: 1.5;
             padding: 2rem 1rem;
         }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -29,7 +23,6 @@
             overflow: hidden;
             position: relative;
         }
-
         .lang-switch {
             position: absolute;
             top: 20px;
@@ -63,14 +56,12 @@
         .lang-btn:not(.active):hover {
             background: rgba(255,255,255,0.2);
         }
-
         .hero {
             background: linear-gradient(135deg, #1e3c4c 0%, #2b4f62 100%);
             padding: 2.5rem 2rem 2rem 2rem;
             text-align: center;
             color: white;
         }
-
         .avatar {
             width: 128px;
             height: 128px;
@@ -82,17 +73,8 @@
             background: #ffffff20;
             transition: transform 0.2s ease;
         }
-        .avatar:hover {
-            transform: scale(1.02);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 0.4rem;
-        }
-
+        .avatar:hover { transform: scale(1.02); }
+        h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
         .subtitle {
             font-size: 1rem;
             font-weight: 400;
@@ -104,7 +86,6 @@
             backdrop-filter: blur(2px);
             margin-bottom: 1.2rem;
         }
-
         .social-links {
             display: flex;
             justify-content: center;
@@ -132,18 +113,9 @@
             border-color: white;
             transform: translateY(-2px);
         }
-
-        .content {
-            padding: 2rem 2rem 2rem 2rem;
-        }
-
-        section {
-            margin-bottom: 2.5rem;
-        }
-        section:last-child {
-            margin-bottom: 0;
-        }
-
+        .content { padding: 2rem 2rem 2rem 2rem; }
+        section { margin-bottom: 2.5rem; }
+        section:last-child { margin-bottom: 0; }
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -158,18 +130,9 @@
             overflow-x: auto;
         }
         @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.2rem;
-                white-space: normal;
-                word-break: keep-all;
-            }
+            .section-title { font-size: 1.2rem; white-space: normal; word-break: keep-all; }
         }
-
-        .edu-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+        .edu-list { display: flex; flex-direction: column; gap: 1.5rem; }
         .edu-card {
             display: flex;
             flex-wrap: nowrap;
@@ -181,38 +144,12 @@
             border: 1px solid #eef2f5;
             gap: 1rem;
         }
-        .edu-card:hover {
-            border-color: #cbdde6;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .edu-year {
-            flex-shrink: 0;
-            min-width: 110px;
-            font-weight: 700;
-            color: #2b5f74;
-            font-size: 0.95rem;
-            letter-spacing: -0.2px;
-        }
-        .edu-details {
-            flex: 1;
-        }
-        .edu-details h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-            color: #1a2c3e;
-            word-break: break-word;
-        }
-        .edu-details p {
-            color: #4b6a7c;
-            font-size: 0.9rem;
-        }
-
-        .interests {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
+        .edu-card:hover { border-color: #cbdde6; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .edu-year { flex-shrink: 0; min-width: 110px; font-weight: 700; color: #2b5f74; font-size: 0.95rem; letter-spacing: -0.2px; }
+        .edu-details { flex: 1; }
+        .edu-details h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; color: #1a2c3e; word-break: break-word; }
+        .edu-details p { color: #4b6a7c; font-size: 0.9rem; }
+        .interests { display: flex; flex-wrap: wrap; gap: 0.8rem; }
         .interest-tag {
             background: #eef3fa;
             color: #1e4c62;
@@ -223,12 +160,7 @@
             transition: all 0.2s;
             border: 1px solid #dce6ed;
         }
-        .interest-tag:hover {
-            background: #e1eef8;
-            transform: translateY(-2px);
-            border-color: #9bb7c9;
-        }
-
+        .interest-tag:hover { background: #e1eef8; transform: translateY(-2px); border-color: #9bb7c9; }
         .pub-card {
             background: #fefcf5;
             border-left: 4px solid #e6b422;
@@ -240,61 +172,15 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .pub-title {
-            font-weight: 700;
-            font-size: 1rem;
-            color: #2c3e2f;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.6rem;
-            margin-bottom: 0.4rem;
-        }
-        .badge {
-            background: #fff0d6;
-            color: #b86f0c;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            letter-spacing: 0.3px;
-        }
-        .pub-authors {
-            font-size: 0.85rem;
-            color: #4a5b6e;
-            margin-top: 0.3rem;
-            line-height: 1.4;
-        }
-        .pub-authors strong {
-            color: #1e3c4c;
-        }
-        .pub-journal {
-            font-size: 0.8rem;
-            color: #5d6f83;
-            margin-top: 0.3rem;
-        }
-        .pub-links {
-            margin-top: 0.8rem;
-            display: flex;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-        .pub-links a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .pub-links a:hover {
-            color: #1e3c4c;
-            text-decoration: underline;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
+        .pub-title { font-weight: 700; font-size: 1rem; color: #2c3e2f; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+        .badge { background: #fff0d6; color: #b86f0c; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 20px; letter-spacing: 0.3px; }
+        .pub-authors { font-size: 0.85rem; color: #4a5b6e; margin-top: 0.3rem; line-height: 1.4; }
+        .pub-authors strong { color: #1e3c4c; }
+        .pub-journal { font-size: 0.8rem; color: #5d6f83; margin-top: 0.3rem; }
+        .pub-links { margin-top: 0.8rem; display: flex; gap: 1rem; font-size: 0.8rem; }
+        .pub-links a { color: #3498db; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .pub-links a:hover { color: #1e3c4c; text-decoration: underline; }
+        .skills { display: flex; flex-wrap: wrap; gap: 0.8rem; }
         .skill-badge {
             background: #e8f0f5;
             color: #1c5d77;
@@ -307,48 +193,17 @@
             gap: 0.4rem;
             white-space: nowrap;
         }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem 2rem;
-            border-top: 1px solid #e2edf2;
-            background: #fafcfd;
-            color: #6c8d9e;
-            font-size: 0.8rem;
-        }
-
+        footer { text-align: center; padding: 1.5rem 2rem; border-top: 1px solid #e2edf2; background: #fafcfd; color: #6c8d9e; font-size: 0.8rem; }
         @media (max-width: 650px) {
-            .container {
-                border-radius: 1.2rem;
-            }
-            .hero {
-                padding: 1.8rem 1rem;
-            }
-            .content {
-                padding: 1.5rem;
-            }
-            .edu-year {
-                min-width: 85px;
-                font-size: 0.85rem;
-            }
-            .edu-details h3 {
-                font-size: 0.95rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-                white-space: normal;
-            }
-            .lang-switch {
-                top: 12px;
-                right: 12px;
-            }
-            .lang-btn {
-                padding: 4px 10px;
-                font-size: 0.7rem;
-            }
-            .pub-card {
-                min-height: auto;
-            }
+            .container { border-radius: 1.2rem; }
+            .hero { padding: 1.8rem 1rem; }
+            .content { padding: 1.5rem; }
+            .edu-year { min-width: 85px; font-size: 0.85rem; }
+            .edu-details h3 { font-size: 0.95rem; }
+            .section-title { font-size: 1.2rem; white-space: normal; }
+            .lang-switch { top: 12px; right: 12px; }
+            .lang-btn { padding: 4px 10px; font-size: 0.7rem; }
+            .pub-card { min-height: auto; }
         }
     </style>
 </head>
@@ -364,17 +219,15 @@
         <h1 id="name">何俊辉</h1>
         <div class="subtitle" id="subtitle">🎓 硕士生 @ 中国地质大学（武汉）</div>
         <div class="social-links">
-            <a href="https://github.com/hjh530" target="_blank" rel="noopener">🐙 GitHub</a>
-            <a href="mailto:2753689348@qq.com">📧 Email</a>
+            <a href="https://github.com/hjh530" target="_blank" rel="noopener" id="githubLink">🐙 GitHub</a>
+            <a href="mailto:2753689348@qq.com" id="emailLink">📧 Email</a>
             <a href="resume.pdf" target="_blank" rel="noopener" id="cvLink">📄 简历</a>
         </div>
     </div>
 
     <div class="content">
         <section>
-            <div class="section-title">
-                <span></span> <span id="eduTitle">📖 教育经历</span>
-            </div>
+            <div class="section-title"><span></span> <span id="eduTitle">📖 教育经历</span></div>
             <div class="edu-list">
                 <div class="edu-card">
                     <div class="edu-year" id="edu1Year">2024 – 至今</div>
@@ -394,9 +247,7 @@
         </section>
 
         <section>
-            <div class="section-title">
-                <span></span> <span id="researchTitle">🔬 研究方向</span>
-            </div>
+            <div class="section-title"><span></span> <span id="researchTitle">🔬 研究方向</span></div>
             <div class="interests">
                 <span class="interest-tag" id="interest1">三维重建</span>
                 <span class="interest-tag" id="interest2">新视角合成</span>
@@ -405,9 +256,7 @@
         </section>
 
         <section>
-            <div class="section-title">
-                <span></span> <span id="pubTitle">📄 论文发表</span>
-            </div>
+            <div class="section-title"><span></span> <span id="pubTitle">📄 论文发表</span></div>
             <div class="pub-card">
                 <div class="pub-title">
                     <span id="pubName">MPD-GS: Mask-guided point densification for Gaussian splatting</span>
@@ -417,16 +266,14 @@
                     <strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang
                 </div>
                 <div class="pub-journal" id="pubJournal">Volume 668, 2025 · DOI: 10.1016/j.neucom.2025.132438</div>
-                <div class="pub-links" id="pubLinks">
+                <div class="pub-links">
                     <a href="https://github.com/Geo3DSmart/MPD-3DGS" target="_blank" rel="noopener" id="codeLink">💻 代码仓库</a>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="section-title">
-                <span></span> <span id="techTitle">💻 技术栈</span>
-            </div>
+            <div class="section-title"><span></span> <span id="techTitle">💻 技术栈</span></div>
             <div class="skills">
                 <span class="skill-badge" id="skill1">🐍 Python</span>
                 <span class="skill-badge" id="skill2">⚙️ C++</span>
@@ -434,9 +281,7 @@
         </section>
     </div>
 
-    <footer>
-        <p id="footerText">© 2026 何俊辉 · 由 GitHub Pages 托管</p>
-    </footer>
+    <footer><p id="footerText">© 2026 何俊辉 · 由 GitHub Pages 托管</p></footer>
 </div>
 
 <script>
@@ -444,6 +289,9 @@
         zh: {
             name: "何俊辉",
             subtitle: "🎓 硕士生 @ 中国地质大学（武汉）",
+            githubLink: "🐙 GitHub",
+            emailLink: "📧 Email",
+            cvLink: "📄 简历",
             eduTitle: "📖 教育经历",
             edu1Year: "2024 – 至今",
             edu2Year: "2020 – 2024",
@@ -460,8 +308,7 @@
             pubStatus: "Neurocomputing, 2025",
             pubAuthors: "<strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
             pubJournal: "第668卷, 2025 · DOI: 10.1016/j.neucom.2025.132438",
-            codeText: "💻 代码仓库",
-            cvText: "📄 简历",
+            codeLink: "💻 代码仓库",
             techTitle: "💻 技术栈",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
@@ -470,6 +317,9 @@
         en: {
             name: "Junhui He",
             subtitle: "🎓 Master Student @ China University of Geosciences (Wuhan)",
+            githubLink: "🐙 GitHub",
+            emailLink: "📧 Email",
+            cvLink: "📄 CV",
             eduTitle: "📖 Education",
             edu1Year: "2024 – Present",
             edu2Year: "2020 – 2024",
@@ -486,8 +336,7 @@
             pubStatus: "Neurocomputing, 2025",
             pubAuthors: "<strong>Junhui He</strong> (First Author), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
             pubJournal: "Volume 668, 2025 · DOI: 10.1016/j.neucom.2025.132438",
-            codeText: "💻 Code",
-            cvText: "📄 CV",
+            codeLink: "💻 Code",
             techTitle: "💻 Tech Stack",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
@@ -502,40 +351,27 @@
         currentLang = lang;
         const t = translations[lang];
 
-        const elements = {
-            name: 'innerText',
-            subtitle: 'innerText',
-            eduTitle: 'innerText',
-            edu1Year: 'innerText',
-            edu2Year: 'innerText',
-            edu1Title: 'innerText',
-            edu1Inst: 'innerText',
-            edu2Title: 'innerText',
-            edu2Inst: 'innerText',
-            researchTitle: 'innerHTML',
-            interest1: 'innerText',
-            interest2: 'innerText',
-            interest3: 'innerText',
-            pubTitle: 'innerHTML',
-            pubName: 'innerText',
-            pubStatus: 'innerText',
-            pubAuthors: 'innerHTML',
-            pubJournal: 'innerText',
-            codeLink: 'innerText',
-            cvLink: 'innerText',
-            techTitle: 'innerHTML',
-            skill1: 'innerHTML',
-            skill2: 'innerHTML',
-            footerText: 'innerText'
-        };
-
-        for (const [id, prop] of Object.entries(elements)) {
+        // 更新所有带 id 的元素
+        const ids = [
+            'name', 'subtitle', 'githubLink', 'emailLink', 'cvLink',
+            'eduTitle', 'edu1Year', 'edu2Year', 'edu1Title', 'edu1Inst',
+            'edu2Title', 'edu2Inst', 'researchTitle', 'interest1', 'interest2', 'interest3',
+            'pubTitle', 'pubName', 'pubStatus', 'pubAuthors', 'pubJournal', 'codeLink',
+            'techTitle', 'skill1', 'skill2', 'footerText'
+        ];
+        for (let id of ids) {
             const el = document.getElementById(id);
             if (el && t[id] !== undefined) {
-                el[prop] = t[id];
+                // 对于包含 HTML 的字段（如 pubAuthors），使用 innerHTML，否则 innerText
+                if (id === 'pubAuthors') {
+                    el.innerHTML = t[id];
+                } else {
+                    el.innerText = t[id];
+                }
             }
         }
 
+        // 更新按钮激活样式
         document.querySelectorAll('.lang-btn').forEach(btn => {
             if (btn.getAttribute('data-lang') === lang) {
                 btn.classList.add('active');
@@ -546,9 +382,8 @@
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const lang = btn.getAttribute('data-lang');
-            switchLanguage(lang);
+        btn.addEventListener('click', () => {
+            switchLanguage(btn.getAttribute('data-lang'));
         });
     });
 
