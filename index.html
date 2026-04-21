@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Junhui He · 3D Vision Researcher</title>
+    <title>何俊辉 · 3D Vision Researcher</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -144,7 +144,6 @@
             margin-bottom: 0;
         }
 
-        /* 标题样式：禁止断字换行 */
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -158,7 +157,6 @@
             white-space: nowrap;
             overflow-x: auto;
         }
-        /* 手机标题处理 */
         @media (max-width: 480px) {
             .section-title {
                 font-size: 1.2rem;
@@ -167,7 +165,6 @@
             }
         }
 
-        /* 教育经历 - 强制横排 */
         .edu-list {
             display: flex;
             flex-direction: column;
@@ -211,7 +208,6 @@
             font-size: 0.9rem;
         }
 
-        /* 研究方向标签 */
         .interests {
             display: flex;
             flex-wrap: wrap;
@@ -233,7 +229,6 @@
             border-color: #9bb7c9;
         }
 
-        /* 论文卡片统一高度和间距 */
         .pub-card {
             background: #fefcf5;
             border-left: 4px solid #e6b422;
@@ -295,7 +290,6 @@
             text-decoration: underline;
         }
 
-        /* 技能标签 */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -323,7 +317,6 @@
             font-size: 0.8rem;
         }
 
-        /* 移动端微调：保持横排 */
         @media (max-width: 650px) {
             .container {
                 border-radius: 1.2rem;
@@ -367,7 +360,7 @@
     </div>
 
     <div class="hero">
-        <img src="images/avatar.jpg" alt="Junhui He" class="avatar">
+        <img src="images/avatar.jpg" alt="Junhui He" class="avatar" onerror="this.src='https://ui-avatars.com/api/?name=He+Junhui&background=ffffff30&color=fff&size=128&rounded=true&bold=true&font-size=0.45&length=2'">
         <h1 id="name">何俊辉</h1>
         <div class="subtitle" id="subtitle">🎓 硕士生 @ 中国地质大学（武汉）</div>
         <div class="social-links">
@@ -384,14 +377,14 @@
             </div>
             <div class="edu-list">
                 <div class="edu-card">
-                    <div class="edu-year">2024 – 至今</div>
+                    <div class="edu-year" id="edu1Year">2024 – 至今</div>
                     <div class="edu-details">
                         <h3 id="edu1Title">摄影测量与遥感 硕士</h3>
                         <p id="edu1Inst">中国地质大学（武汉）</p>
                     </div>
                 </div>
                 <div class="edu-card">
-                    <div class="edu-year">2020 – 2024</div>
+                    <div class="edu-year" id="edu2Year">2020 – 2024</div>
                     <div class="edu-details">
                         <h3 id="edu2Title">遥感科学与技术 学士</h3>
                         <p id="edu2Inst">中国地质大学（武汉）</p>
@@ -442,7 +435,7 @@
     </div>
 
     <footer>
-        <p id="footerText">© 2026 Junhui He · 由 GitHub Pages 托管</p>
+        <p id="footerText">© 2026 何俊辉 · 由 GitHub Pages 托管</p>
     </footer>
 </div>
 
@@ -450,9 +443,10 @@
     const translations = {
         zh: {
             name: "何俊辉",
-            cvText: "📄 简历",
             subtitle: "🎓 硕士生 @ 中国地质大学（武汉）",
             eduTitle: "📖 教育经历",
+            edu1Year: "2024 – 至今",
+            edu2Year: "2020 – 2024",
             edu1Title: "摄影测量与遥感 硕士",
             edu1Inst: "中国地质大学（武汉）",
             edu2Title: "遥感科学与技术 学士",
@@ -467,16 +461,18 @@
             pubAuthors: "<strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
             pubJournal: "第668卷, 2025 · DOI: 10.1016/j.neucom.2025.132438",
             codeText: "💻 代码仓库",
+            cvText: "📄 简历",
             techTitle: "💻 技术栈",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
-            footerText: "© 2026 Junhui He · 由 GitHub Pages 托管"
+            footerText: "© 2026 何俊辉 · 由 GitHub Pages 托管"
         },
         en: {
             name: "Junhui He",
-            cvText: "📄 CV",
             subtitle: "🎓 Master Student @ China University of Geosciences (Wuhan)",
             eduTitle: "📖 Education",
+            edu1Year: "2024 – Present",
+            edu2Year: "2020 – 2024",
             edu1Title: "M.Sc. in Photogrammetry and Remote Sensing",
             edu1Inst: "China University of Geosciences (Wuhan)",
             edu2Title: "B.E. in Remote Sensing Science and Technology",
@@ -491,6 +487,7 @@
             pubAuthors: "<strong>Junhui He</strong> (First Author), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
             pubJournal: "Volume 668, 2025 · DOI: 10.1016/j.neucom.2025.132438",
             codeText: "💻 Code",
+            cvText: "📄 CV",
             techTitle: "💻 Tech Stack",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
@@ -507,9 +504,10 @@
 
         const elements = {
             name: 'innerText',
-            cvLink: 'innerText',
             subtitle: 'innerText',
             eduTitle: 'innerText',
+            edu1Year: 'innerText',
+            edu2Year: 'innerText',
             edu1Title: 'innerText',
             edu1Inst: 'innerText',
             edu2Title: 'innerText',
@@ -524,6 +522,7 @@
             pubAuthors: 'innerHTML',
             pubJournal: 'innerText',
             codeLink: 'innerText',
+            cvLink: 'innerText',
             techTitle: 'innerHTML',
             skill1: 'innerHTML',
             skill2: 'innerHTML',
@@ -555,8 +554,5 @@
 
     switchLanguage('zh');
 </script>
-</body>
-</html>
-
 </body>
 </html>
