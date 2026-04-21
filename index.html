@@ -30,7 +30,6 @@
             position: relative;
         }
 
-        /* 语言切换按钮 */
         .lang-switch {
             position: absolute;
             top: 20px;
@@ -255,6 +254,27 @@
         .pub-authors strong {
             color: #1e3c4c;
         }
+        .pub-journal {
+            font-size: 0.8rem;
+            color: #5d6f83;
+            margin-top: 0.3rem;
+        }
+        .pub-links {
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+        .pub-links a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .pub-links a:hover {
+            color: #1e3c4c;
+            text-decoration: underline;
+        }
 
         .skills {
             display: flex;
@@ -317,7 +337,6 @@
 </head>
 <body>
 <div class="container">
-    <!-- 语言切换按钮 -->
     <div class="lang-switch">
         <button class="lang-btn active" data-lang="zh">中文</button>
         <button class="lang-btn" data-lang="en">English</button>
@@ -326,7 +345,7 @@
     <div class="hero">
         <img src="https://ui-avatars.com/api/?name=Junhui+He&background=ffffff30&color=fff&size=128&rounded=true&bold=true&font-size=0.45&length=2" alt="Junhui He" class="avatar">
         <h1 id="name">Junhui He · 何俊辉</h1>
-        <div class="subtitle" id="subtitle">🎓 Master Student @ China University of Geosciences (Wuhan)</div>
+        <div class="subtitle" id="subtitle">🎓 硕士生 @ 中国地质大学（武汉）</div>
         <div class="social-links">
             <a href="https://github.com/hjh530" target="_blank" rel="noopener">🐙 GitHub</a>
             <a href="mailto:junhui.he@cug.edu.cn">📧 Email</a>
@@ -336,21 +355,21 @@
     <div class="content">
         <section>
             <div class="section-title">
-                <span></span> <span id="eduTitle">📖 Education</span>
+                <span></span> <span id="eduTitle">📖 教育经历</span>
             </div>
             <div class="edu-list">
                 <div class="edu-card">
-                    <div class="edu-year">2024 – Present</div>
+                    <div class="edu-year">2024 – 至今</div>
                     <div class="edu-details">
-                        <h3 id="edu1Title">M.Sc. in Photogrammetry and Remote Sensing</h3>
-                        <p id="edu1Inst">China University of Geosciences (Wuhan)</p>
+                        <h3 id="edu1Title">摄影测量与遥感 硕士</h3>
+                        <p id="edu1Inst">中国地质大学（武汉）</p>
                     </div>
                 </div>
                 <div class="edu-card">
                     <div class="edu-year">2020 – 2024</div>
                     <div class="edu-details">
-                        <h3 id="edu2Title">B.E. in Remote Sensing Science and Technology</h3>
-                        <p id="edu2Inst">China University of Geosciences (Wuhan)</p>
+                        <h3 id="edu2Title">遥感科学与技术 学士</h3>
+                        <p id="edu2Inst">中国地质大学（武汉）</p>
                     </div>
                 </div>
             </div>
@@ -358,33 +377,37 @@
 
         <section>
             <div class="section-title">
-                <span></span> <span id="researchTitle">🔬 Research Interests</span>
+                <span></span> <span id="researchTitle">🔬 研究方向</span>
             </div>
             <div class="interests">
-                <span class="interest-tag" id="interest1">3D Reconstruction</span>
-                <span class="interest-tag" id="interest2">Novel View Synthesis</span>
-                <span class="interest-tag" id="interest3">3D Gaussian Splatting (3DGS)</span>
+                <span class="interest-tag" id="interest1">三维重建</span>
+                <span class="interest-tag" id="interest2">新视角合成</span>
+                <span class="interest-tag" id="interest3">3D高斯泼溅 (3DGS)</span>
             </div>
         </section>
 
         <section>
             <div class="section-title">
-                <span></span> <span id="pubTitle">📄 Publications</span>
+                <span></span> <span id="pubTitle">📄 论文发表</span>
             </div>
             <div class="pub-card">
                 <div class="pub-title">
-                    <span id="pubName">One paper on 3D Reconstruction / View Synthesis</span>
-                    <span class="badge" id="pubStatus">Under Review @ Neurocomputing</span>
+                    <span id="pubName">MPD-GS: Mask-guided point densification for Gaussian splatting</span>
+                    <span class="badge" id="pubStatus">Neurocomputing, 2025</span>
                 </div>
                 <div class="pub-authors" id="pubAuthors">
-                    <strong>Junhui He</strong>, et al. · Title to be updated
+                    <strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang
+                </div>
+                <div class="pub-journal" id="pubJournal">Volume 668, 2025 · DOI: 10.1016/j.neucom.2025.132438</div>
+                <div class="pub-links" id="pubLinks">
+                    <a href="https://github.com/Geo3DSmart/MPD-3DGS" target="_blank" rel="noopener" id="codeLink">💻 代码仓库</a>
                 </div>
             </div>
         </section>
 
         <section>
             <div class="section-title">
-                <span></span> <span id="techTitle">💻 Tech Stack</span>
+                <span></span> <span id="techTitle">💻 技术栈</span>
             </div>
             <div class="skills">
                 <span class="skill-badge" id="skill1">🐍 Python</span>
@@ -394,12 +417,11 @@
     </div>
 
     <footer>
-        <p id="footerText">© 2026 Junhui He · Hosted on GitHub Pages</p>
+        <p id="footerText">© 2026 Junhui He · 由 GitHub Pages 托管</p>
     </footer>
 </div>
 
 <script>
-    // 中英文对照字典
     const translations = {
         zh: {
             name: "Junhui He · 何俊辉",
@@ -414,9 +436,11 @@
             interest2: "新视角合成",
             interest3: "3D高斯泼溅 (3DGS)",
             pubTitle: "📄 论文发表",
-            pubName: "一篇关于三维重建/新视角合成的论文",
-            pubStatus: "Under Review @ Neurocomputing",
-            pubAuthors: "<strong>Junhui He</strong> 等 · 标题待更新",
+            pubName: "MPD-GS: 基于掩膜引导的点密度增强的高斯泼溅方法",
+            pubStatus: "Neurocomputing, 2025",
+            pubAuthors: "<strong>Junhui He</strong> (第一作者), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
+            pubJournal: "第668卷, 2025 · DOI: 10.1016/j.neucom.2025.132438",
+            codeText: "💻 代码仓库",
             techTitle: "💻 技术栈",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
@@ -435,9 +459,11 @@
             interest2: "Novel View Synthesis",
             interest3: "3D Gaussian Splatting (3DGS)",
             pubTitle: "📄 Publications",
-            pubName: "One paper on 3D Reconstruction / View Synthesis",
-            pubStatus: "Under Review @ Neurocomputing",
-            pubAuthors: "<strong>Junhui He</strong>, et al. · Title to be updated",
+            pubName: "MPD-GS: Mask-guided point densification for Gaussian splatting",
+            pubStatus: "Neurocomputing, 2025",
+            pubAuthors: "<strong>Junhui He</strong> (First Author), Wen Xiao, Guilong Wang, Jiteng Cheng, Jiaxing Zhang, Chao Yang",
+            pubJournal: "Volume 668, 2025 · DOI: 10.1016/j.neucom.2025.132438",
+            codeText: "💻 Code",
             techTitle: "💻 Tech Stack",
             skill1: "🐍 Python",
             skill2: "⚙️ C++",
@@ -445,54 +471,89 @@
         }
     };
 
-    let currentLang = 'zh'; // 默认中文
+    let currentLang = 'zh';
 
     function switchLanguage(lang) {
         if (!translations[lang]) return;
         currentLang = lang;
         const t = translations[lang];
 
-        // 更新页面中所有带 id 的文本
         document.getElementById('name').innerText = t.name;
         document.getElementById('subtitle').innerText = t.subtitle;
         document.getElementById('eduTitle').innerText = t.eduTitle;
         document.getElementById('edu1Title').innerText = t.edu1Title;
         document.getElementById('edu1Inst').innerText = t.edu1Inst;
-        document.getElementById('edu2Title').innerText = t.edu2Title;
-        document.getElementById('edu2Inst').innerText = t.edu2Inst;
-        document.getElementById('researchTitle').innerHTML = t.researchTitle; // 支持 emoji
-        document.getElementById('interest1').innerText = t.interest1;
-        document.getElementById('interest2').innerText = t.interest2;
-        document.getElementById('interest3').innerText = t.interest3;
-        document.getElementById('pubTitle').innerHTML = t.pubTitle;
-        document.getElementById('pubName').innerText = t.pubName;
-        document.getElementById('pubStatus').innerText = t.pubStatus;
-        document.getElementById('pubAuthors').innerHTML = t.pubAuthors;
-        document.getElementById('techTitle').innerHTML = t.techTitle;
-        document.getElementById('skill1').innerHTML = t.skill1;
-        document.getElementById('skill2').innerHTML = t.skill2;
-        document.getElementById('footerText').innerText = t.footerText;
+        document.getElementById document.getElementById('edu2Title('edu2Title').inner').innerText = t.edu2TitleText = t.edu;
+       2Title document.getElementById('edu;
+        document.getElementById2Inst('edu').inner2Inst').innerText = t.eduText = t.edu2Inst2Inst;
+       ;
+        document.getElementById document.getElementById('research('researchTitle').Title').innerHTML = t.researchTitle;
+innerHTML = t.researchTitle;
+        document.getElementById('interest1        document.getElementById('interest1').inner').innerText =Text = t. t.interest1interest1;
+       ;
+        document.getElementById('interest2 document.getElementById('interest2').innerText').innerText = t = t.interest2;
+        document.interest2;
+        document.getElementById('.getElementById('interest3interest3').').innerinnerText =Text = t. t.interest3interest3;
+       ;
+        document.getElementById document.getElementById('pub('pubTitle').Title').innerHTMLinnerHTML = t.pub = t.pubTitleTitle;
+        document;
+        document.getElementById('.getElementById('pubNamepubName').inner').innerText =Text = t.p t.pubName;
+       ubName;
+        document.getElementById document.getElementById('pubStatus').innerText('pubStatus').innerText = t.p = tubStatus.pubStatus;
+        document.getElementById('pubAuthors;
+        document').inner.getElementById('pubAuthors').innerHTML = t.pHTML = t.pubAuthorsubAuthors;
+;
+               document.getElementById document.getElementById('pub('pubJournal').Journal').innerTextinnerText = t = t.pubJournal;
+        document.pubJournal;
+        document.getElementById('.getElementById('codeLinkcodeLink').inner').innerTextText = = t.code t.codeTextText;
+        document.getElementById(';
+        document.getElementById('techTitle').innertechTitle').innerHTML =HTML = t. t.techTitletechTitle;
+       ;
+        document.getElementById document.getElementById('skill('skill1').1').innerHTMLinnerHTML = t = t.skill.skill11;
+        document;
+        document.getElementById('.getElementById('skill2').innerskill2').innerHTML = t.sHTML = t.skill2kill2;
+;
+        document        document.getElementById('footer.getElementById('footerText').Text').innerTextinnerText = t = t.footer.footerText;
 
-        // 更新按钮激活样式
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            if (btn.getAttribute('data-lang') === lang) {
-                btn.classList.add('active');
+        documentText;
+
+        document.querySelectorAll.querySelectorAll('.lang-btn').('.lang-btn').forEach(forEach(btn =>btn => {
+            if ( {
+            if (btn.getbtn.getAttribute('data-lang') === langAttribute('data-lang') === lang) {
+                btn) {
+                btn.classList.add.classList.add('active('active');
+            } else');
             } else {
-                btn.classList.remove('active');
+                {
+                btn.classList.remove btn.classList.remove('('activeactive');
+            }
+       ');
             }
         });
+    });
     }
 
-    // 绑定按钮事件
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const lang = btn.getAttribute('data-lang');
-            switchLanguage(lang);
+    document.querySelectorAll('.lang }
+
+    document-btn')..querySelectorAll('.lang-btn').forEach(forEach(btn =>btn => {
+        {
+        btn.addEventListener btn.addEventListener('click', (('click',e) => (e) {
+            const => lang = {
+            const lang = btn.getAttribute(' btn.getAttribute('data-ldata-langang');
+            switch');
+            switchLanguage(lLanguage(lang);
+        });
+   ang);
         });
     });
 
-    // 初始化中文
-    switchLanguage('zh');
+    switch });
+
+    switchLanguage('zhLanguage('zh');
+</script');
 </script>
-</body>
+</>
+</bodybody>
 </html>
+</html>
+>
