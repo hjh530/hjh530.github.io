@@ -163,6 +163,7 @@
             border-radius: 4px;
         }
 
+        /* 教育经历 - 强制横排，永不换列 */
         .edu-list {
             display: flex;
             flex-direction: column;
@@ -170,7 +171,8 @@
         }
         .edu-card {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;          /* 禁止换行 */
+            align-items: flex-start;
             background: #f9fbfd;
             border-radius: 1rem;
             padding: 1rem 1.2rem;
@@ -182,6 +184,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         .edu-year {
+            flex-shrink: 0;             /* 防止年份被压缩 */
             min-width: 130px;
             font-weight: 700;
             color: #2b5f74;
@@ -197,6 +200,36 @@
         .edu-details p {
             color: #4b6a7c;
             font-size: 0.9rem;
+        }
+
+        /* 响应式：小屏幕下仍保持横排，仅缩小年份宽度 */
+        @media (max-width: 650px) {
+            .container {
+                border-radius: 1.2rem;
+            }
+            .hero {
+                padding: 1.8rem 1rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            .edu-year {
+                min-width: 100px;       /* 适当缩小但仍保持横排 */
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .lang-switch {
+                top: 12px;
+                right: 12px;
+            }
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
         }
 
         .interests {
@@ -300,38 +333,6 @@
             background: #fafcfd;
             color: #6c8d9e;
             font-size: 0.8rem;
-        }
-
-        @media (max-width: 650px) {
-            .container {
-                border-radius: 1.2rem;
-            }
-            .hero {
-                padding: 1.8rem 1rem;
-            }
-            .content {
-                padding: 1.5rem;
-            }
-            .edu-card {
-                flex-direction: column;
-            }
-            .edu-year {
-                margin-bottom: 0.3rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .lang-switch {
-                top: 12px;
-                right: 12px;
-            }
-            .lang-btn {
-                padding: 4px 10px;
-                font-size: 0.7rem;
-            }
         }
     </style>
 </head>
@@ -474,86 +475,69 @@
     let currentLang = 'zh';
 
     function switchLanguage(lang) {
-        if (!translations[lang]) return;
+        if (!translations[lang]) {
+            console.warn("Language not supported:", lang);
+            return;
+        }
         currentLang = lang;
         const t = translations[lang];
 
-        document.getElementById('name').innerText = t.name;
-        document.getElementById('subtitle').innerText = t.subtitle;
-        document.getElementById('eduTitle').innerText = t.eduTitle;
-        document.getElementById('edu1Title').innerText = t.edu1Title;
-        document.getElementById('edu1Inst').innerText = t.edu1Inst;
-        document.getElementById document.getElementById('edu2Title('edu2Title').inner').innerText = t.edu2TitleText = t.edu;
-       2Title document.getElementById('edu;
-        document.getElementById2Inst('edu').inner2Inst').innerText = t.eduText = t.edu2Inst2Inst;
-       ;
-        document.getElementById document.getElementById('research('researchTitle').Title').innerHTML = t.researchTitle;
-innerHTML = t.researchTitle;
-        document.getElementById('interest1        document.getElementById('interest1').inner').innerText =Text = t. t.interest1interest1;
-       ;
-        document.getElementById('interest2 document.getElementById('interest2').innerText').innerText = t = t.interest2;
-        document.interest2;
-        document.getElementById('.getElementById('interest3interest3').').innerinnerText =Text = t. t.interest3interest3;
-       ;
-        document.getElementById document.getElementById('pub('pubTitle').Title').innerHTMLinnerHTML = t.pub = t.pubTitleTitle;
-        document;
-        document.getElementById('.getElementById('pubNamepubName').inner').innerText =Text = t.p t.pubName;
-       ubName;
-        document.getElementById document.getElementById('pubStatus').innerText('pubStatus').innerText = t.p = tubStatus.pubStatus;
-        document.getElementById('pubAuthors;
-        document').inner.getElementById('pubAuthors').innerHTML = t.pHTML = t.pubAuthorsubAuthors;
-;
-               document.getElementById document.getElementById('pub('pubJournal').Journal').innerTextinnerText = t = t.pubJournal;
-        document.pubJournal;
-        document.getElementById('.getElementById('codeLinkcodeLink').inner').innerTextText = = t.code t.codeTextText;
-        document.getElementById(';
-        document.getElementById('techTitle').innertechTitle').innerHTML =HTML = t. t.techTitletechTitle;
-       ;
-        document.getElementById document.getElementById('skill('skill1').1').innerHTMLinnerHTML = t = t.skill.skill11;
-        document;
-        document.getElementById('.getElementById('skill2').innerskill2').innerHTML = t.sHTML = t.skill2kill2;
-;
-        document        document.getElementById('footer.getElementById('footerText').Text').innerTextinnerText = t = t.footer.footerText;
+        // 更新所有带 id 的文本内容
+        const elements = {
+            name: 'innerText',
+            subtitle: 'innerText',
+            eduTitle: 'innerText',
+            edu1Title: 'innerText',
+            edu1Inst: 'innerText',
+            edu2Title: 'innerText',
+            edu2Inst: 'innerText',
+            researchTitle: 'innerHTML',
+            interest1: 'innerText',
+            interest2: 'innerText',
+            interest3: 'innerText',
+            pubTitle: 'innerHTML',
+            pubName: 'innerText',
+            pubStatus: 'innerText',
+            pubAuthors: 'innerHTML',
+            pubJournal: 'innerText',
+            codeLink: 'innerText',
+            techTitle: 'innerHTML',
+            skill1: 'innerHTML',
+            skill2: 'innerHTML',
+            footerText: 'innerText'
+        };
 
-        documentText;
-
-        document.querySelectorAll.querySelectorAll('.lang-btn').('.lang-btn').forEach(forEach(btn =>btn => {
-            if ( {
-            if (btn.getbtn.getAttribute('data-lang') === langAttribute('data-lang') === lang) {
-                btn) {
-                btn.classList.add.classList.add('active('active');
-            } else');
-            } else {
-                {
-                btn.classList.remove btn.classList.remove('('activeactive');
+        for (const [id, prop] of Object.entries(elements)) {
+            const el = document.getElementById(id);
+            if (el && t[id] !== undefined) {
+                el[prop] = t[id];
+            } else if (!el) {
+                console.warn(`Element with id "${id}" not found.`);
             }
-       ');
+        }
+
+        // 更新按钮激活样式
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
             }
         });
-    });
+
+        console.log(`Language switched to: ${lang}`);
     }
 
-    document.querySelectorAll('.lang }
-
-    document-btn')..querySelectorAll('.lang-btn').forEach(forEach(btn =>btn => {
-        {
-        btn.addEventListener btn.addEventListener('click', (('click',e) => (e) {
-            const => lang = {
-            const lang = btn.getAttribute(' btn.getAttribute('data-ldata-langang');
-            switch');
-            switchLanguage(lLanguage(lang);
-        });
-   ang);
+    // 绑定按钮事件
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const lang = btn.getAttribute('data-lang');
+            switchLanguage(lang);
         });
     });
 
-    switch });
-
-    switchLanguage('zhLanguage('zh');
-</script');
+    // 初始化中文
+    switchLanguage('zh');
 </script>
-</>
-</bodybody>
+</body>
 </html>
-</html>
->
