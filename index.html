@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Junhui He · 3D Vision Researcher</title>
-    <!-- 引入更优雅的字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -28,11 +27,44 @@
             border-radius: 2rem;
             box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
             overflow: hidden;
-            backdrop-filter: blur(0px);
-            transition: all 0.2s ease;
+            position: relative;
         }
 
-        /* 头部区域：使用柔和渐变背景 */
+        /* 语言切换按钮 */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            z-index: 10;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 5px;
+            display: flex;
+            gap: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: white;
+            font-family: inherit;
+        }
+        .lang-btn.active {
+            background: white;
+            color: #1e3c4c;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .lang-btn:not(.active):hover {
+            background: rgba(255,255,255,0.2);
+        }
+
         .hero {
             background: linear-gradient(135deg, #1e3c4c 0%, #2b4f62 100%);
             padding: 2.5rem 2rem 2rem 2rem;
@@ -102,12 +134,10 @@
             transform: translateY(-2px);
         }
 
-        /* 主体内容区域：白色卡片风格 */
         .content {
             padding: 2rem 2rem 2rem 2rem;
         }
 
-        /* 每个区块 */
         section {
             margin-bottom: 2.5rem;
         }
@@ -134,7 +164,6 @@
             border-radius: 4px;
         }
 
-        /* 教育经历：使用时间线样式 */
         .edu-list {
             display: flex;
             flex-direction: column;
@@ -171,7 +200,6 @@
             font-size: 0.9rem;
         }
 
-        /* 研究方向标签 */
         .interests {
             display: flex;
             flex-wrap: wrap;
@@ -193,7 +221,6 @@
             border-color: #9bb7c9;
         }
 
-        /* 出版物卡片 */
         .pub-card {
             background: #fefcf5;
             border-left: 4px solid #e6b422;
@@ -229,7 +256,6 @@
             color: #1e3c4c;
         }
 
-        /* 技能标签 */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -247,7 +273,6 @@
             gap: 0.4rem;
         }
 
-        /* footer */
         footer {
             text-align: center;
             padding: 1.5rem 2rem;
@@ -257,7 +282,6 @@
             font-size: 0.8rem;
         }
 
-        /* 响应式 */
         @media (max-width: 650px) {
             .container {
                 border-radius: 1.2rem;
@@ -280,17 +304,29 @@
             .section-title {
                 font-size: 1.3rem;
             }
+            .lang-switch {
+                top: 12px;
+                right: 12px;
+            }
+            .lang-btn {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- 头部区域 -->
+    <!-- 语言切换按钮 -->
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <div class="hero">
-        <!-- 保留相同头像风格，但使用更精致的渐变色文字头像（也可以替换真实照片） -->
         <img src="https://ui-avatars.com/api/?name=Junhui+He&background=ffffff30&color=fff&size=128&rounded=true&bold=true&font-size=0.45&length=2" alt="Junhui He" class="avatar">
-        <h1>Junhui He · 何俊辉</h1>
-        <div class="subtitle">🎓 Master Student @ China University of Geosciences (Wuhan)</div>
+        <h1 id="name">Junhui He · 何俊辉</h1>
+        <div class="subtitle" id="subtitle">🎓 Master Student @ China University of Geosciences (Wuhan)</div>
         <div class="social-links">
             <a href="https://github.com/hjh530" target="_blank" rel="noopener">🐙 GitHub</a>
             <a href="mailto:junhui.he@cug.edu.cn">📧 Email</a>
@@ -298,72 +334,165 @@
     </div>
 
     <div class="content">
-        <!-- 教育经历 -->
         <section>
             <div class="section-title">
-                <span></span> 📖 Education
+                <span></span> <span id="eduTitle">📖 Education</span>
             </div>
             <div class="edu-list">
                 <div class="edu-card">
                     <div class="edu-year">2024 – Present</div>
                     <div class="edu-details">
-                        <h3>M.Sc. in Photogrammetry and Remote Sensing</h3>
-                        <p>China University of Geosciences (Wuhan)</p>
+                        <h3 id="edu1Title">M.Sc. in Photogrammetry and Remote Sensing</h3>
+                        <p id="edu1Inst">China University of Geosciences (Wuhan)</p>
                     </div>
                 </div>
                 <div class="edu-card">
                     <div class="edu-year">2020 – 2024</div>
                     <div class="edu-details">
-                        <h3>B.E. in Remote Sensing Science and Technology</h3>
-                        <p>China University of Geosciences (Wuhan)</p>
+                        <h3 id="edu2Title">B.E. in Remote Sensing Science and Technology</h3>
+                        <p id="edu2Inst">China University of Geosciences (Wuhan)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 研究方向 -->
         <section>
             <div class="section-title">
-                <span></span> 🔬 Research Interests
+                <span></span> <span id="researchTitle">🔬 Research Interests</span>
             </div>
             <div class="interests">
-                <span class="interest-tag">3D Reconstruction</span>
-                <span class="interest-tag">Novel View Synthesis</span>
-                <span class="interest-tag">3D Gaussian Splatting (3DGS)</span>
+                <span class="interest-tag" id="interest1">3D Reconstruction</span>
+                <span class="interest-tag" id="interest2">Novel View Synthesis</span>
+                <span class="interest-tag" id="interest3">3D Gaussian Splatting (3DGS)</span>
             </div>
         </section>
 
-        <!-- 出版物 -->
         <section>
             <div class="section-title">
-                <span></span> 📄 Publications
+                <span></span> <span id="pubTitle">📄 Publications</span>
             </div>
             <div class="pub-card">
                 <div class="pub-title">
-                    One paper on 3D Reconstruction / View Synthesis
-                    <span class="badge">Under Review @ Neurocomputing</span>
+                    <span id="pubName">One paper on 3D Reconstruction / View Synthesis</span>
+                    <span class="badge" id="pubStatus">Under Review @ Neurocomputing</span>
                 </div>
-                <div class="pub-authors">
+                <div class="pub-authors" id="pubAuthors">
                     <strong>Junhui He</strong>, et al. · Title to be updated
                 </div>
             </div>
         </section>
 
-        <!-- 技术栈 -->
         <section>
             <div class="section-title">
-                <span></span> 💻 Tech Stack
+                <span></span> <span id="techTitle">💻 Tech Stack</span>
             </div>
             <div class="skills">
-                <span class="skill-badge">🐍 Python</span>
-                <span class="skill-badge">⚙️ C++</span>
+                <span class="skill-badge" id="skill1">🐍 Python</span>
+                <span class="skill-badge" id="skill2">⚙️ C++</span>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>© 2026 Junhui He · Hosted on GitHub Pages</p>
+        <p id="footerText">© 2026 Junhui He · Hosted on GitHub Pages</p>
     </footer>
 </div>
+
+<script>
+    // 中英文对照字典
+    const translations = {
+        zh: {
+            name: "Junhui He · 何俊辉",
+            subtitle: "🎓 硕士生 @ 中国地质大学（武汉）",
+            eduTitle: "📖 教育经历",
+            edu1Title: "摄影测量与遥感 硕士",
+            edu1Inst: "中国地质大学（武汉）",
+            edu2Title: "遥感科学与技术 学士",
+            edu2Inst: "中国地质大学（武汉）",
+            researchTitle: "🔬 研究方向",
+            interest1: "三维重建",
+            interest2: "新视角合成",
+            interest3: "3D高斯泼溅 (3DGS)",
+            pubTitle: "📄 论文发表",
+            pubName: "一篇关于三维重建/新视角合成的论文",
+            pubStatus: "Under Review @ Neurocomputing",
+            pubAuthors: "<strong>Junhui He</strong> 等 · 标题待更新",
+            techTitle: "💻 技术栈",
+            skill1: "🐍 Python",
+            skill2: "⚙️ C++",
+            footerText: "© 2026 Junhui He · 由 GitHub Pages 托管"
+        },
+        en: {
+            name: "Junhui He · 何俊辉",
+            subtitle: "🎓 Master Student @ China University of Geosciences (Wuhan)",
+            eduTitle: "📖 Education",
+            edu1Title: "M.Sc. in Photogrammetry and Remote Sensing",
+            edu1Inst: "China University of Geosciences (Wuhan)",
+            edu2Title: "B.E. in Remote Sensing Science and Technology",
+            edu2Inst: "China University of Geosciences (Wuhan)",
+            researchTitle: "🔬 Research Interests",
+            interest1: "3D Reconstruction",
+            interest2: "Novel View Synthesis",
+            interest3: "3D Gaussian Splatting (3DGS)",
+            pubTitle: "📄 Publications",
+            pubName: "One paper on 3D Reconstruction / View Synthesis",
+            pubStatus: "Under Review @ Neurocomputing",
+            pubAuthors: "<strong>Junhui He</strong>, et al. · Title to be updated",
+            techTitle: "💻 Tech Stack",
+            skill1: "🐍 Python",
+            skill2: "⚙️ C++",
+            footerText: "© 2026 Junhui He · Hosted on GitHub Pages"
+        }
+    };
+
+    let currentLang = 'zh'; // 默认中文
+
+    function switchLanguage(lang) {
+        if (!translations[lang]) return;
+        currentLang = lang;
+        const t = translations[lang];
+
+        // 更新页面中所有带 id 的文本
+        document.getElementById('name').innerText = t.name;
+        document.getElementById('subtitle').innerText = t.subtitle;
+        document.getElementById('eduTitle').innerText = t.eduTitle;
+        document.getElementById('edu1Title').innerText = t.edu1Title;
+        document.getElementById('edu1Inst').innerText = t.edu1Inst;
+        document.getElementById('edu2Title').innerText = t.edu2Title;
+        document.getElementById('edu2Inst').innerText = t.edu2Inst;
+        document.getElementById('researchTitle').innerHTML = t.researchTitle; // 支持 emoji
+        document.getElementById('interest1').innerText = t.interest1;
+        document.getElementById('interest2').innerText = t.interest2;
+        document.getElementById('interest3').innerText = t.interest3;
+        document.getElementById('pubTitle').innerHTML = t.pubTitle;
+        document.getElementById('pubName').innerText = t.pubName;
+        document.getElementById('pubStatus').innerText = t.pubStatus;
+        document.getElementById('pubAuthors').innerHTML = t.pubAuthors;
+        document.getElementById('techTitle').innerHTML = t.techTitle;
+        document.getElementById('skill1').innerHTML = t.skill1;
+        document.getElementById('skill2').innerHTML = t.skill2;
+        document.getElementById('footerText').innerText = t.footerText;
+
+        // 更新按钮激活样式
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    // 绑定按钮事件
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const lang = btn.getAttribute('data-lang');
+            switchLanguage(lang);
+        });
+    });
+
+    // 初始化中文
+    switchLanguage('zh');
+</script>
 </body>
 </html>
