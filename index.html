@@ -22,57 +22,55 @@ body{
     background:white;
     border-radius:2rem;
     overflow:hidden;
+    position:relative;
 }
 
+/* 语言按钮 */
 .lang-switch{
     position:absolute;
-    right:20px;
     top:20px;
+    right:20px;
 }
-
 .lang-btn{
     padding:6px 12px;
-    cursor:pointer;
     border:none;
     border-radius:20px;
+    cursor:pointer;
 }
-
 .lang-btn.active{
     background:#1e3c4c;
     color:white;
 }
 
-/* ===== 标题修复核心 ===== */
+/* 标题 */
 .section-title{
     display:flex;
+    align-items:center;
     gap:0.6rem;
     margin-bottom:1rem;
 }
-
 .section-title span:last-child{
     flex:1;
     min-width:0;
     white-space:nowrap;
 }
 
-/* ===== 教育经历修复 ===== */
+/* 教育 */
 .edu-card{
     display:flex;
     gap:1rem;
     margin-bottom:1rem;
 }
-
 .edu-details{
     flex:1;
     min-width:0;
 }
-
 .edu-details h3,
 .edu-details p{
     word-break:keep-all;
 }
 
-/* ===== 全局防竖排 ===== */
+/* 全局防竖排 */
 h1,h2,h3,p,span{
     word-break:keep-all;
 }
@@ -95,8 +93,7 @@ h1,h2,h3,p,span{
 <button class="lang-btn" data-lang="en">English</button>
 </div>
 
-<h1 id="name">Junhui He · 何俊辉</h1>
-<p id="subtitle">🎓 硕士生 @ 中国地质大学（武汉）</p>
+<div class="content">
 
 <section>
 <div class="section-title">
@@ -129,7 +126,7 @@ h1,h2,h3,p,span{
 </div>
 <p id="interest1">三维重建</p>
 <p id="interest2">新视角合成</p>
-<p id="interest3">3DGS</p>
+<p id="interest3">3D高斯泼溅</p>
 </section>
 
 <section>
@@ -138,7 +135,7 @@ h1,h2,h3,p,span{
 <span id="pubTitle">📄 论文发表</span>
 </div>
 
-<p id="pubName">MPD-GS...</p>
+<p id="pubName">MPD-GS: Mask-guided point densification for Gaussian splatting</p>
 <p id="pubAuthors">Junhui He ...</p>
 <p id="pubJournal">Neurocomputing 2025</p>
 <a id="codeLink" href="#">💻 代码仓库</a>
@@ -155,12 +152,11 @@ h1,h2,h3,p,span{
 </section>
 
 </div>
+</div>
 
 <script>
 const translations={
 zh:{
-name:"Junhui He · 何俊辉",
-subtitle:"🎓 硕士生 @ 中国地质大学（武汉）",
 eduTitle:"📖 教育经历",
 edu1Title:"摄影测量与遥感 硕士",
 edu1Inst:"中国地质大学（武汉）",
@@ -180,8 +176,6 @@ skill1:"Python",
 skill2:"C++"
 },
 en:{
-name:"Junhui He",
-subtitle:"🎓 Master Student",
 eduTitle:"📖 Education",
 edu1Title:"MSc",
 edu1Inst:"CUG",
